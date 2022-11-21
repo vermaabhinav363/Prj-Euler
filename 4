@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+#define ll long long
+#define pb push_back
+using namespace std;
+#define INF 1e18
+const ll MOD = 1e9+7;
+
+ll ans =-1;
+
+void solve(ll n){
+    ll k =n;
+    vector<ll> vecx;
+    while(n>0){
+        vecx.pb(n%10);
+        n=n/10;
+    }
+    bool flag = true;
+    for(unsigned int i= 0;i<vecx.size();i++){
+        if(vecx[i]==vecx[vecx.size()-i-1]){
+
+        }
+        else
+            flag = false;
+    }
+    if(flag){
+        ans = max(ans,k);
+    }
+}
+
+int main()
+ 
+{
+ 
+#ifndef ONLINE_JUDGE
+ 
+    freopen("input.txt", "r", stdin);
+ 
+    freopen("output.txt", "w", stdout);
+   
+#endif
+
+    for(ll i =100;i<=999;i++){
+        for(ll j =100;j<=999;j++){
+            solve(i*j);
+        }
+    }
+    cout<<ans;
+
+
+    
+}
