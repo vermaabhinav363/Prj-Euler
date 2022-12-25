@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+using namespace std;
+#define MOD 1000000007
+ 
+int main()
+ 
+{
+ 
+#ifndef ONLINE_JUDGE
+ 
+    freopen("input.txt", "r", stdin);
+ 
+    freopen("output.txt", "w", stdout);
+   
+#endif
+    
+    ll k=0,j=0;
+    for(int i =1 ;i<=100;i++){
+        k+=i;
+        j+= (i*i);
+    }
+    cout<< k*k - j;
+
+}
