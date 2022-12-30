@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+using namespace std;
+
+set<string >s;
+
+void solve(ll j,string str){
+
+	for(ll i =j ;i<str.size();i++){
+		swap(str[i],str[j]);
+		s.insert(str);
+		solve(j+1,str);
+		swap(str[i],str[j]);
+	}
+}
+
+
+
+int main(){
+	string str = "0123456789";	
+	solve(0,str);
+	ll count =0;
+	for(auto st:s){
+		count++;
+		if(count==1000000)
+		cout<<st<<"\n";
+	}
+	
+
+}
