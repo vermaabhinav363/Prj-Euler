@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+using namespace std;
+#define MOD 1000000007
+
+using namespace std;
+
+int main(){
+	
+string str;
+cin>>str;
+bool flag = false;
+std::vector<string> v;
+string ptr = "";
+for(int i =0;i<str.size();i++){
+	
+	if(str[i]=='"' && flag == false){
+		flag = true;
+        ptr="";  
+	}
+
+
+	else if(str[i]=='"' && flag == true){
+		v.pb(ptr);
+		
+		flag = false;
+        ptr="";  
+	}
+
+	else if(flag == true){
+		ptr+= str[i];
+	}
+
+}	
+	sort(v.begin(),v.end());
+	ll ans=0;
+	ll sum=0;
+	for(ll i =0 ;i<v.size();i++){
+		sum =0;
+		for(ll j =0 ;j<v[i].size();j++)
+			sum+= (v[i][j]-'A' + 1);
+		ans+= (i+1)*sum;
+		
+	}
+	cout<<ans<<"\n";
+	
+
+	
+
+}
