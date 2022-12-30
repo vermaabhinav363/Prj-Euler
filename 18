@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+using namespace std;
+#define MOD 1000000007
+
+using namespace std;
+
+vector<vector<ll> > vecx;
+ll solve(ll i ,ll j,ll sum){
+	
+	if(j==vecx.size())
+		return sum;
+
+
+	ll l1=-1,l2=-1;
+	
+	l1 = solve(i,j+1,sum+vecx[j][i]);
+	
+	if(j+1<vecx.size()  && i+1<vecx[j+1].size()){
+		l2 = solve(i+1,j+1,sum+vecx[j][i]);
+	}
+	return max(l1,l2);
+}
+
+
+int main(){
+	
+	for(ll i =1 ;i <=15;i++){
+		vector<ll> vecy;
+		ll x;
+		for(ll j=0;j<i;j++){
+			cin>>x;
+			vecy.pb(x);
+		}
+		vecx.pb(vecy);
+	}
+	cout<<solve(0,0,0);
+
+}
