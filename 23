@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+using namespace std;
+#define MOD 1000000007
+
+using namespace std;
+
+int divSum(int num)
+{
+    
+    int result = 0;
+    if(num == 1) 
+      return result;
+   
+    for (int i=2; i<=sqrt(num); i++)
+    {
+       
+        if (num%i==0)
+        {
+           
+            if (i==(num/i))
+                result += i;
+            else
+                result += (i + num/i);
+        }
+    }
+ 
+    return (result + 1);
+}
+
+int main(){
+	
+	std::vector<ll> v;
+	ll sum1=0;
+	for(ll i =1;i<=28123;i++){
+		sum1+=i;
+		if(i<divSum(i)){
+			v.pb(i);
+			
+		
+		}
+	}
+	ll sum=0;
+	for(ll i =1;i<=28123;i++){
+		for(ll j = 0;j<v.size();j++){
+			if(i<=v[j]){
+				break;
+			}
+			for(ll k =j ;k<v.size();k++){
+				if(i<=v[k]){
+					break;
+				}
+				if(i==v[j]+v[k]){
+					sum+= i;
+					goto c;
+				}
+				
+			}
+			
+		}
+		c:;
+	}
+	cout<<sum1-sum;
+
+	
+
+}
