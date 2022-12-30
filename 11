@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+using namespace std;
+#define MOD 1000000007
+
+using namespace std;
+
+int main(){
+	long double y,x = 0;
+	for(int i =0 ; i<100;i++){
+		cin>>y;
+		x+= y;
+	}
+	cout << setprecision(15) << x;
+
+}
