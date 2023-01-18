@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+map<ll,ll> mp;
+void primeFactors(int n)
+{
+    while (n % 2 == 0)
+    {
+
+        mp[2]++;
+        n = n/2;
+    }
+
+
+    for (int i = 3; i <= sqrt(n); i = i + 2)
+    {
+
+        while (n % i == 0)
+        {
+            mp[i]++;
+            n = n/i;
+        }
+    }
+
+    if (n > 2)
+        mp[n]++;
+}
+
+set< string > s;
+int main(){
+   for(ll i =2;i<=100;i++){
+    for(ll j =2;j<=100;j++){
+        mp.clear();
+        primeFactors(i);
+        string str;
+        for(auto m:mp){
+            m.second = m.second * j;
+            cout<<m.first<<" "<<m.second<<"\n";
+            str+= to_string(m.first);
+            str+="-";
+            str+= to_string(m.second);
+        }
+        s.insert(str);
+    }
+   }
+   cout<<s.size();
+
+
+}
