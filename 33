@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+
+int main(){
+    ll pro=1;
+    ll count=0;
+    for(ll i =10;i<=99;i++){
+        for(ll j =i+1;j<=99;j++){
+
+            ll p = i;
+            ll q = j;
+
+            ll a = p%10;
+            p/=10;
+            ll b = p%10;
+
+            ll c = q%10;
+            q/=10;
+            ll d = q%10;
+
+            if(a==c){
+                if(b*j==i*d && c!=0){
+                    pro*=j;
+                    cout<<count<<" "<<i<<" "<<j<<" "<<pro<<"\n";
+                    count++;
+                    goto c;
+                }
+            }
+            if(a==d){
+                if(b*j==i*c && c!=0){
+                    pro*=j;
+                    cout<<count<<" "<<i<<" "<<j<<" "<<pro<<"\n";
+                    count++;
+                    goto c;
+                }
+            }
+            if(b==c){
+                if(a*j==i*d && c!=0){
+                    pro*=j;
+                    cout<<count<<" "<<i<<" "<<j<<" "<<pro<<"\n";
+                    count++;
+                    goto c;
+                }
+            }
+            if(b==d){
+                if(a*j==i*c && c!=0){
+                    pro*=j;
+                    cout<<count<<" "<<i<<" "<<j<<" "<<pro<<"\n";
+                    count++;
+                    goto c;
+                }
+            }
+
+            c:;
+
+        }
+    }
+
+
+
+
+
+}
