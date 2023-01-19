@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+ll arr[8] = {1,2,5,10,20,50,100,200};
+ll solve(ll n = 200, ll in =0){
+    if(in==8)
+        return 0;
+
+    if(n==0)
+        return 1;
+    if(n<0)
+        return 0;
+
+    return solve(n-arr[in],in)+solve(n,in+1);
+}
+
+
+int main(){
+
+
+
+    cout<<solve();
+
+}
