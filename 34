@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+
+int main(){
+       ll k=10;
+       ll count = 0;
+       map<ll,ll> mp;
+       mp[0]=1;
+       for(ll i =1;i<10;i++){
+        mp[i] = mp[i-1]*i;
+       }
+       while(k!=10000000){
+            ll t = k;
+            ll s = 0;
+            while(t!=0){
+                s+= mp[t%10];
+                t/=10;
+            }
+            if(s==k)
+                count+=s;
+            k++;
+       }
+       cout<<count;
+
+
+
+
+}
