@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define mk make_pair
+using namespace std;
+#define MOD 1000000007
+
+long long smallestpositive(vector<long long> arr, int n) {
+   long long int res = 1; // Initialize result
+
+   sort(arr.begin(), arr.end());
+   // Traverse the array and increment 'res' if arr[i] is
+   // smaller than or equal to 'res'.
+   for (int i = 0; i < n && arr[i] <= res; i++)
+       res = res + arr[i];
+
+   return res;
+  }
+
+int main(){
+   ll sum = 0;
+   for(ll i =1;i<=1000000;i++){
+        ll k = i;
+        string str="";
+        while(k>0){
+            if(k%2==0){
+                str+="0";
+            }
+            else{
+                str+="1";
+            }
+            k/=2;
+        }
+        string ptr = str;
+        reverse(ptr.begin(),ptr.end());
+        if(str == ptr){
+            str = to_string(i);
+            string ptr = str;
+            reverse(ptr.begin(),ptr.end());
+            if(str==ptr)
+                sum+=i;
+        }
+
+   }
+   cout<<sum;
+
+
+
+}
